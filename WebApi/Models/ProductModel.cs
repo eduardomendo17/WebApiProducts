@@ -5,7 +5,7 @@ namespace WebApi.Models
     public class ProductModel
     {
         // Variables locales
-        private string ConnectionString = "Server=localhost; Port=3306; Database=amazon_seller; User ID=root; Password=ladmin07";
+        private string ConnectionString;
         
         // Memoria
         //private static List<ProductModel> Products = new List<ProductModel>();
@@ -22,6 +22,16 @@ namespace WebApi.Models
         // Constructor
         public ProductModel()
         {
+            ConnectionString = string.Empty;
+            Model = String.Empty;
+            Category = String.Empty;
+            Picture = String.Empty;
+            Designer = String.Empty;
+        }
+
+        public ProductModel(string connectionString)
+        {
+            ConnectionString = connectionString;
             Model = String.Empty;
             Category = String.Empty;
             Picture = String.Empty;
@@ -165,7 +175,7 @@ namespace WebApi.Models
             }
         }
 
-        public void Update(ProductModel model)
+        public int Update(ProductModel model)
         {
             // Memoria
             /*foreach(ProductModel item in Products)
@@ -203,6 +213,7 @@ namespace WebApi.Models
                         cmd.ExecuteNonQuery();
                     }
                 }
+                return model.ID;
             }
             catch (Exception)
             {
@@ -210,7 +221,7 @@ namespace WebApi.Models
             }
         }
 
-        public void Delete(int id)
+        public int Delete(int id)
         {
             // Memoria
             //Products.Remove(Get(id));
@@ -229,6 +240,7 @@ namespace WebApi.Models
                         cmd.ExecuteNonQuery();
                     }
                 }
+                return id;
             }
             catch (Exception)
             {
