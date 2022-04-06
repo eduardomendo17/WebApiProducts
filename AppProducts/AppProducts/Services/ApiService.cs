@@ -11,7 +11,7 @@ namespace AppProducts.Services
     public class ApiService
     {
         // Variables locales
-        private string ApiUrl = "";
+        private string ApiUrl = "http://172.17.241.32/webapi/";
 
         // Métodos
         public async Task<ApiResponse> GetDataAsync(string controller)
